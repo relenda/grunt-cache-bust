@@ -69,6 +69,10 @@ module.exports = function(grunt) {
             return [reb[0], '?'];
         }));
 
+        if (opts.disableEnclosedBy) {
+            replaceEnclosedBy = [ ['', ''] ]
+        }
+
         // Go through each source file and replace them with busted file if available
         var map = opts.queryString ? undefined : assetMap;
         getFilesToBeRenamed(this.files, map, opts.baseDir).forEach(replaceInFile);
